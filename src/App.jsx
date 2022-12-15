@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Route, Routes } from 'react-router-dom'
-import { Home, Check } from './pages/'
+import { Home, Receive, Send, Wallet } from './pages/'
 import { Sidebar } from './components'
 
 import axios from 'axios'
@@ -13,10 +13,12 @@ const App = () => {
         <Sidebar />
       </div>
       <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
-        {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/check" element={<Check />} />
-      </Routes> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/wallet" element={<Wallet />} />Z
+          <Route path="/send" element={<Send />} />
+          <Route path="/receive" element={<Receive />} />
+        </Routes>
       </div>
     </div>
   )

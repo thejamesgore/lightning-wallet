@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { lightning } from '../assets'
+import { lightning, lightMode, darkMode } from '../assets'
 import { navLinks } from '../constants'
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   <div
     className={`w-[120px] h-[48px] rounded-[10px] flex items-center ${
-      isActive && isActive === name && 'bg-slate-500'
+      isActive && isActive === name && 'bg-[#ffffff]'
     } ${!disabled && 'cursor-pointer'} ${styles}`}
     onClick={handleClick}
   >
     {' '}
     {!isActive ? (
-      <img src={imgUrl} alt="logo" className="w-1/2 h-1/2" />
+      <>
+        <img src={imgUrl} alt="logo" className="w-1/2 h-1/2" />
+      </>
     ) : (
       <>
         <img
@@ -30,6 +32,15 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 const Sidebar = () => {
   const navigate = useNavigate()
   const [isActive, setIsActive] = useState('dashboard')
+  const [darkTheme, setDarkTheme] = useState(false)
+
+  const switchTheme = () => {
+    if (darkTheme === false) {
+      setDarkTheme(true)
+    } else {
+      setDarkTheme(false)
+    }
+  }
 
   return (
     <div className="flex  items-center  flex-col sticky top-5 h-[15vh]">
@@ -57,6 +68,15 @@ const Sidebar = () => {
               }}
             />
           ))}
+        </div>
+      </div>
+      {/* Light / Dark Button */}
+      <div className="flex-1 flex flex-col justify-between items-center bg-slate-300 rounded-[20px] w-[140px] py-4 mt-12">
+        <div
+          className="flex flex-col justify-center items-center gap-3"
+          onClick={switchTheme}
+        >
+          <Icon imgUrl={darkTheme === true ? `${darkMode}` : `${lightMode}`} />
         </div>
       </div>
     </div>
