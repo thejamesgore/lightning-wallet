@@ -29,10 +29,9 @@ export const getTransactions = async () => {
 export const receivePayment = async (body) => {
   const headers = {
     'X-Api-Key': READ_KEY,
-    'Content-type': `application/json`,
   }
 
-  const data = await axios.post(`${BASE_URL}/payments`, { body }, { headers })
+  const data = await axios.post(`${BASE_URL}/payments`, body, { headers })
 
   console.log(data)
 

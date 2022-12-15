@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+
+import { QRCode } from 'react-qrcode-logo'
 import axios from 'axios'
 
 import { getWalletInfo, getTransactions, receivePayment } from '../lib/api'
@@ -45,7 +47,7 @@ const Transactions = () => {
     e.preventDefault()
 
     const headers = {
-      'X-Api-Key': '5312e544171c47b3b55111e0d4579f6d',
+      'X-Api-Key': process.env.REACT_APP_READ_KEY,
     }
     const data = {
       amount: formData.amount,
@@ -64,7 +66,7 @@ const Transactions = () => {
   return (
     <div className="w-[300px] ">
       {/* RECEIVE */}
-      <h2>Receive</h2>
+      <h2>Create payment request</h2>
       <form>
         <label>enter amount</label>
         <input
@@ -98,6 +100,7 @@ const Transactions = () => {
       {invoice && (
         <section>
           <h3>Invoice created</h3>
+          <QRCode value={invoice} size={500} />
           <p>{invoice}</p>
           {/* ToDo: Create a QR code out of this invoice as well */}
         </section>
