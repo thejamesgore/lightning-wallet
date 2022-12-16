@@ -7,7 +7,7 @@ import { navLinks } from '../constants'
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   <div
     className={`w-[120px] h-[48px] rounded-[10px] flex items-center  
-    } ${isActive && isActive === name && 'bg-[#ffffff] dark:bg-[#2c2f32]'} ${
+    } ${isActive && isActive === name && 'bg-[#ffffff] '} ${
       !disabled && 'cursor-pointer'
     } ${styles}`}
     onClick={handleClick}

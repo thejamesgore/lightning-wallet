@@ -10,7 +10,7 @@ import axios from 'axios'
 
 const App = () => {
   return (
-    <div className="relative sm:-8 p-4 bg-slate-200   min-h-screen flex flex-row">
+    <div className="relative sm:-8 p-4 min-h-screen flex flex-row">
       <div className="sm:flex hidden relative">
         <Sidebar />
       </div>
