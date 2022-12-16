@@ -7,10 +7,14 @@ import receive from './receive.svg'
 import send from './send.svg'
 import wallet from './wallet.svg'
 import lightningDM from './lightningDM.svg'
+import hamburger from './hamburger.svg'
+import hamburgerOpen from './hamburgeropen.svg'
 
 export {
   bitcoin,
   darkMode,
+  hamburger,
+  hamburgerOpen,
   home,
   lightMode,
   lightning,

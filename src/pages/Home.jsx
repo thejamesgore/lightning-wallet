@@ -3,12 +3,7 @@ import React from 'react'
 import Transactions from '../components/Transactions'
 
 const Home = () => {
-  return (
-    <div>
-      Home
-      {/* <Transactions /> */}
-    </div>
-  )
+  return <div></div>
 }
 
 export default Home
