@@ -2,6 +2,8 @@ import { light } from '@mui/material/styles/createPalette'
 import React, { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
+import { StateContext } from '../context'
+
 import {
   lightning,
   lightMode,
@@ -15,6 +17,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [isActive, setIsActive] = useState('dashboard')
   const [toggleDrawer, setToggleDrawer] = useState(false)
+  const { theme, toggleTheme } = useContext(StateContext)
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -26,14 +29,17 @@ const Navbar = () => {
             <img
               src={lightning}
               alt="user"
-              className={`w-[60%] h-[60%] object-contain`}
+              className={`w-[60%] h-[60%] object-contain ${
+                theme === 'dark' ? 'filterIcon' : ''
+              }`}
             />
           </div>
           <div className="w-[40px] h-[40px] rounded-[10px] dark:bg-[#2c2f32] bg-slate-300 flex justify-center items-center cursor-pointer">
             <img
-              src={lightning}
+              src={theme === 'light' ? lightMode : darkMode}
               alt="user"
               className="w-[60%] h-[60%] object-contain dark:filterIcon"
+              onClick={toggleTheme.bind(null)}
             />
           </div>
         </div>
@@ -41,7 +47,9 @@ const Navbar = () => {
         <img
           src={toggleDrawer === false ? hamburger : hamburgerOpen}
           alt="menu"
-          className="w-[34px] h-[34px] object-contain cursor-pointer"
+          className={`w-[34px] h-[34px] object-contain cursor-pointer ${
+            theme === 'dark' ? 'filterIcon' : ''
+          }`}
           onClick={() => setToggleDrawer((prev) => !prev)}
         />
 
