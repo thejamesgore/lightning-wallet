@@ -6,5 +6,16 @@ import lightning from './lightning.svg'
 import receive from './receive.svg'
 import send from './send.svg'
 import wallet from './wallet.svg'
+import lightningDM from './lightningDM.svg'
 
-export { bitcoin, darkMode, home, lightMode, lightning, receive, send, wallet }
+export {
+  bitcoin,
+  darkMode,
+  home,
+  lightMode,
+  lightning,
+  lightningDM,
+  receive,
+  send,
+  wallet,
+}

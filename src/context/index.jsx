@@ -1,23 +1,23 @@
-import React, { useContext, createContext } from 'react'
-
-import axios from ' axios'
+import React, { useContext, createContext, useState } from 'react'
 
 const StateContext = createContext()
 
-export const StateContextprovider = ({ children }) => {
-  const getTings = () => {
-    const data = axios.get(`http://url.com/`)
-
-    return data
+export const StateContextProvider = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false)
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
   }
 
   return (
     <StateContext.Provider
       value={{
-        getTings,
+        darkMode,
+        toggleDarkMode,
       }}
     >
       {children}
     </StateContext.Provider>
   )
 }
+
+export const useStateContext = () => useContext(StateContext)
