@@ -51,7 +51,7 @@ const Send = () => {
           className="mt-2"
           type="text"
           rows={11}
-          cols={30}
+          cols={25}
           value={formData.invoiceToPay}
           onChange={(e) =>
             setFormData({ ...formData, invoiceToPay: e.target.value })

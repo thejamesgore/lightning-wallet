@@ -17,14 +17,19 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [isActive, setIsActive] = useState('dashboard')
   const [toggleDrawer, setToggleDrawer] = useState(false)
-  const { theme, toggleTheme } = useContext(StateContext)
+  const { theme, toggleTheme, balance, getWalletBalance } =
+    useContext(StateContext)
+
+  useEffect(() => {
+    getWalletBalance()
+  }, [])
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
       {/* Small screen navigation */}
 
       <div className="sm:hidden flex justify-between items-center relative">
-        <div className="flex flex-row">
+        <div className="flex  items-center flex-row">
           <div className="w-[40px] h-[40px] rounded-[10px] mr-4 dark:bg-[#2c2f32] bg-slate-300 flex justify-center items-center cursor-pointer">
             <img
               src={lightning}
@@ -42,6 +47,9 @@ const Navbar = () => {
               onClick={toggleTheme.bind(null)}
             />
           </div>
+          <h1 className="dark:text-slate-300 font-bold  ml-16 ">
+            BALANCE: {balance} Sats
+          </h1>
         </div>
 
         <img

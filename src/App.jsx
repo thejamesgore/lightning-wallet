@@ -1,12 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 
 import { Route, Routes } from 'react-router-dom'
 import { Home, Receive, Send, Wallet } from './pages/'
 import { Sidebar, Navbar } from './components'
-
-import { useStateContext } from './context'
-
-import axios from 'axios'
 
 const App = () => {
   return (
