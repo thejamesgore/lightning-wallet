@@ -47,7 +47,7 @@ const Navbar = () => {
               onClick={toggleTheme.bind(null)}
             />
           </div>
-          <h1 className="dark:text-slate-300 font-bold  ml-16 ">
+          <h1 className="dark:text-slate-300 font-bold ml-4 ">
             BALANCE: {balance} Sats
           </h1>
         </div>

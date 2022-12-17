@@ -26,6 +26,9 @@ const Wallet = () => {
 
   return (
     <div className="max-w-md ml-5  items-center justify-center ">
+      <h1 className="dark:text-slate-300 font-bold uppercase">
+        Balance: {balance} sats
+      </h1>
       <button
         className={`font-semibold text-[16px] mt-4 ${
           theme === 'dark' ? 'text-white' : ''
