@@ -17,8 +17,8 @@ const App = () => {
     <div className="relative sm:-8 p-4 min-h-screen bg-slate-200 dark:bg-[#131318] flex flex-row">
       <div className="sm:flex hidden relative">
         <div className="">
-          <div className="absolute ml-40 top-8 font-bold w-[580px]">
-            <p>{balance ? `BALANCE: ${balance}sats` : ''}</p>
+          <div className="dark:text-slate-300 absolute ml-40 top-8 font-bold w-[580px]">
+            <p>{balance ? `BALANCE: ${balance} sats` : ''}</p>
           </div>
           <Sidebar />
         </div>

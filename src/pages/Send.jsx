@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { QRCode } from 'react-qrcode-logo'
+
 import axios from 'axios'
 
 import { StateContext } from '../context'
@@ -72,9 +72,13 @@ const Send = () => {
       </form>
       {paymentInfo.paymentHash && (
         <section>
-          <h3>Payment sent</h3>
-          <p>Payment hash: {paymentInfo.paymentHash}</p>
-          <p>Checking id: {paymentInfo.checkingId}</p>
+          <h3 className="dark:text-slate-300">Payment sent</h3>
+          <p className="dark:text-slate-300">
+            Payment hash: {paymentInfo.paymentHash}
+          </p>
+          <p className="dark:text-slate-300">
+            Checking id: {paymentInfo.checkingId}
+          </p>
         </section>
       )}
     </div>
