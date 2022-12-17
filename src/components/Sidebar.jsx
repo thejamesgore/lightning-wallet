@@ -34,9 +34,11 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 const Sidebar = () => {
   const navigate = useNavigate()
   const [isActive, setIsActive] = useState('dashboard')
-  const { theme, toggleTheme, getWalletBalance } = useContext(StateContext)
+  const { theme, toggleTheme, getWalletBalance, balance } =
+    useContext(StateContext)
 
   useEffect(() => {
+    setInterval(getWalletBalance, 10000)
     if (theme === 'dark') {
       document.documentElement.classList.add('dark')
     } else {
