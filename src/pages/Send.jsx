@@ -15,7 +15,7 @@ const Send = () => {
     checkingId: '',
   })
 
-  const { theme } = useContext(StateContext)
+  const { theme, getWalletBalance } = useContext(StateContext)
 
   const handleSend = (e) => {
     e.preventDefault()
@@ -37,6 +37,8 @@ const Send = () => {
         })
       )
       .catch((err) => console.log(err))
+
+    setTimeout(getWalletBalance, 10000)
 
     return
   }

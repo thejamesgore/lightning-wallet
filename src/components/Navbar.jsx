@@ -21,7 +21,7 @@ const Navbar = () => {
     useContext(StateContext)
 
   useEffect(() => {
-    getWalletBalance()
+    setInterval(getWalletBalance(), 10000)
   }, [])
 
   return (
