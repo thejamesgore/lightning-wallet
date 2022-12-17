@@ -5,6 +5,7 @@ import axios from 'axios'
 import { StateContext } from '../context'
 
 const Receive = () => {
+  const [message, setMessage] = useState('')
   const [invoice, setInvoice] = useState('')
   const [formData, setFormData] = useState({
     amount: 0,
@@ -16,6 +17,16 @@ const Receive = () => {
   })
 
   const { theme } = useContext(StateContext)
+
+  const copyToClipboard = async () => {
+    try {
+      console.log({ invoice }.invoice)
+      await navigator.clipboard.writeText({ invoice }.invoice)
+      setMessage('Invoice copied!')
+    } catch (err) {
+      console.err(err)
+    }
+  }
 
   const handleReceive = (e) => {
     // Keep the page from refreshing when the form is submitted
@@ -80,12 +91,26 @@ const Receive = () => {
             <QRCode value={invoice} size={300} />
           </div>
           <div className="">
-            <p
+            <div
               style={{ wordWrap: 'break-word' }}
-              className="dark:text-slate-300 mt-3 "
+              className="dark:text-slate-300 mt-3 cursor-pointer  flex-col flex justify-center items-center"
             >
-              {invoice}
-            </p>
+              <p className="w-[300px]">{invoice}</p>
+              <button
+                className={`font-semibold text-[16px] mt-4 ${
+                  theme === 'dark' ? 'text-white' : ''
+                } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400`}
+                onClick={() => copyToClipboard()}
+              >
+                Copy Invoice
+              </button>
+              <h3
+                style={{ textAlign: 'center' }}
+                className="dark:text-slate-300 mb-2 "
+              >
+                {message}
+              </h3>
+            </div>
           </div>
           {/* ToDo: Create a QR code out of this invoice as well */}
         </section>
