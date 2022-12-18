@@ -27,6 +27,7 @@ export const StateContextProvider = ({ children }) => {
   //
   const [keys, setKeys] = useState('')
   const [wallet, setWallet] = useState('')
+  const [backUp, setBackUp] = useState('')
 
   const generateWallet = async () => {
     const num = Math.floor(100000 + Math.random() * 900000)
@@ -36,8 +37,6 @@ export const StateContextProvider = ({ children }) => {
     )
     setWallet(walletAdd)
     localStorage.setItem('walletAdd', walletAdd.request.responseURL)
-
-    console.log(walletAdd.request.responseURL)
 
     const response = await axios.get(walletAdd.request.responseURL)
 
@@ -55,18 +54,13 @@ export const StateContextProvider = ({ children }) => {
   //
   //
 
-  const backUp = wallet.substring(
-    wallet.indexOf('https://legend.lnbits.com/wallet?usr=') + 37
-  )
+  // var backUp = wallet.substring(
+  //   wallet.indexOf('https://legend.lnbits.com/wallet?usr=') + 37
+  // )
   const backUpWallet = () => {
-    // if (localStorage.getItem('walletAdd')) {
-    // }
-    console.log(
-      wallet.substring(
-        wallet.indexOf('https://legend.lnbits.com/wallet?usr=') + 37
-      )
-    )
-    return wallet
+    const backUpString = localStorage.getItem('walletAdd')
+
+    setBackUp(backUpString)
   }
   //
   // End of back up wallet
@@ -91,8 +85,8 @@ export const StateContextProvider = ({ children }) => {
       console.log()
       const string = 'https://legend.lnbits.com/wallet?usr=' + input
 
-      console.log(string)
       localStorage.setItem('walletAdd', string)
+
       const response = await axios.get(string)
 
       const $ = cheerio.load(response.data)
@@ -115,13 +109,9 @@ export const StateContextProvider = ({ children }) => {
     .substring(0, 32)
 
   //
-  // End of wallet generation
-  //
-
-  //
   // Wallet balance management
   //
-  const [balance, setBalance] = useState(0)
+  const [balance, setBalance] = useState(null)
   const getWalletBalance = () => {
     if (readKey) {
       const headers = {

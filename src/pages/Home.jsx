@@ -87,7 +87,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="mt-4  ">
-          {state === 'backup' && (
+          {backUp && (
             <div className="flex flex-col justify-center items-center w-[380px]">
               <h1 className="break-auto">
                 This is your backup key. Make sure you save this if you wish to
@@ -96,6 +96,18 @@ const Home = () => {
               <div>
                 <p className="mt-3 break-all">{backUp}</p>
               </div>
+            </div>
+          )}
+          {!backUp && (
+            <div>
+              <button
+                onClick={backUpWallet}
+                className={`font-semibold text-[16px] mt-4 ${
+                  theme === 'dark' ? 'text-white' : ''
+                } leading-[26px]  min-h-[52px] px-8 mt-2 mx-2 ml-18 rounded-[10px] bg-slate-400 dark:text-[#2c2f32]`}
+              >
+                Generate Back Up
+              </button>
             </div>
           )}
         </div>
