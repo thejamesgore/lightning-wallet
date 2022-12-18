@@ -7,7 +7,7 @@ import { Sidebar, Navbar } from './components'
 import { StateContext } from './context'
 
 const App = () => {
-  const { balance, getWalletBalance } = useContext(StateContext)
+  const { balance, getWalletBalance, readKey } = useContext(StateContext)
 
   useEffect(() => {
     getWalletBalance()
@@ -27,9 +27,13 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/wallet" element={<Wallet />} />Z
-          <Route path="/send" element={<Send />} />
-          <Route path="/receive" element={<Receive />} />
+          {/* {!readKey ? null : ( */}
+          <>
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/send" element={<Send />} />
+            <Route path="/receive" element={<Receive />} />
+          </>
+          {/* )} */}
         </Routes>
       </div>
     </div>

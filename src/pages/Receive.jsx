@@ -16,7 +16,7 @@ const Receive = () => {
     checkingId: '',
   })
 
-  const { theme } = useContext(StateContext)
+  const { theme, readKey } = useContext(StateContext)
 
   const copyToClipboard = async () => {
     try {
@@ -51,7 +51,6 @@ const Receive = () => {
 
   return (
     <div>
-      {' '}
       <div className="max-w-md ml-5 ">
         <form className="flex justify-center mt-32 flex-col items-center ">
           <h2 className="dark:text-slate-300 font-bold uppercase">
@@ -72,7 +71,7 @@ const Receive = () => {
           <button
             className={`font-semibold text-[16px] mt-4 ${
               theme === 'dark' ? 'text-white' : ''
-            } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400`}
+            } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400 dark:text-[#2c2f32]`}
             onClick={(e) => handleReceive(e)}
           >
             Submit

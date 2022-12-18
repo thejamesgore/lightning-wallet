@@ -9,6 +9,7 @@ import wallet from './wallet.svg'
 import lightningDM from './lightningDM.svg'
 import hamburger from './hamburger.svg'
 import hamburgerOpen from './hamburgeropen.svg'
+import sweep from './sweep.svg'
 
 export {
   bitcoin,
@@ -21,5 +22,6 @@ export {
   lightningDM,
   receive,
   send,
+  sweep,
   wallet,
 }

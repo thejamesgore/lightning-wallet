@@ -44,6 +44,16 @@ export const StateContextProvider = ({ children }) => {
     setKeys(data)
   }
 
+  //
+  // Wallet restoration
+  //
+  const restoreWallet = (address) => {
+    localStorage.getItem()
+  }
+  //
+  // End of wallet restoration
+  //
+
   const adminKey = keys
     .substring(keys.indexOf('Admin key: ') + 11)
     .substring(0, 32)

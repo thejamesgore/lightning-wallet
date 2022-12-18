@@ -61,7 +61,7 @@ const Send = () => {
             <button
               className={`font-semibold text-[16px] mt-4 ${
                 theme === 'dark' ? 'text-white' : ''
-              } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400`}
+              } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400 dark:text-[#2c2f32]`}
               onClick={(e) => handleSend(e)}
             >
               Submit
