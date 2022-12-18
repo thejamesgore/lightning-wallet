@@ -1,38 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import * as cheerio from 'cheerio'
 import axios from 'axios'
 
-import Transactions from '../components/Transactions'
+import { StateContext } from '../context'
 
 const Home = () => {
-  const [keys, setKeys] = useState('')
+  const { generateWallet } = useContext(StateContext)
 
-  const getData = async () => {
-    const response = await axios.get(
-      'https://legend.lnbits.com/wallet?usr=d8d45f4023d84f04876a75d308c85e8f&wal=ef8d252af23043ac95874764c589ece7'
-    )
-    // console.log(response.data)
-    const $ = cheerio.load(response.data)
-    const data = $('q-card').text()
-    // console.log(data)
-    setKeys(data)
-  }
+  // const generateWallet = async () => {
+  //   const num = Math.floor(100000 + Math.random() * 900000)
 
-  useEffect(() => {
-    getData()
-  })
+  //   const walletAdd = await axios.get(
+  //     `https://legend.lnbits.com/wallet?nme=${num}`
+  //   )
+  // }
 
-  const adminKey = keys
-    .substring(keys.indexOf('Admin key: ') + 11)
-    .substring(0, 32)
-
-  const readKey = keys
-    .substring(keys.indexOf('Invoice/read key: ') + 18)
-    .substring(0, 32)
-
-  console.log({ adminKey, readKey })
-
-  return <div></div>
+  return (
+    <div onClick={generateWallet} className="cursor-pointer">
+      Generate new wallet
+    </div>
+  )
 }
 
 export default Home

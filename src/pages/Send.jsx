@@ -5,7 +5,6 @@ import axios from 'axios'
 import { StateContext } from '../context'
 
 const Send = () => {
-  const [invoice, setInvoice] = useState('')
   const [formData, setFormData] = useState({
     amount: 0,
     invoiceToPay: '',
