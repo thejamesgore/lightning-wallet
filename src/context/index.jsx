@@ -8,13 +8,16 @@ export const StateContext = createContext({
 })
 
 export const StateContextProvider = ({ children }) => {
+  // Theme management
   const [theme, setTheme] = useState('light')
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
-  const [balance, setBalance] = useState(0)
+  // Wallet Generation
 
+  // Wallet balance management
+  const [balance, setBalance] = useState(0)
   const getWalletBalance = () => {
     const headers = {
       'X-Api-Key': process.env.REACT_APP_READ_KEY,
