@@ -8,11 +8,11 @@ import Transactions from '../components/Transactions'
 const Wallet = () => {
   const [transactions, setTransactions] = useState()
 
-  const { theme, getWalletBalance, balance } = useContext(StateContext)
+  const { theme, getWalletBalance, readKey } = useContext(StateContext)
 
   const getTransactions = async () => {
     const headers = {
-      'X-Api-Key': process.env.REACT_APP_READ_KEY,
+      'X-Api-Key': readKey,
     }
     const TXs = await axios
       .get('https://legend.lnbits.com/api/v1/payments', { headers })

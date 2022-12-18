@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
     "cheerio": "^1.0.0-rc.12",
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "lnd": "^0.0.2",
     "react": "^18.2.0",

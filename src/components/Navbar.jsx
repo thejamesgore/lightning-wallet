@@ -17,7 +17,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [isActive, setIsActive] = useState('dashboard')
   const [toggleDrawer, setToggleDrawer] = useState(false)
-  const { theme, toggleTheme, balance, getWalletBalance } =
+  const { theme, toggleTheme, balance, getWalletBalance, readKey } =
     useContext(StateContext)
 
   useEffect(() => {
@@ -47,9 +47,11 @@ const Navbar = () => {
               onClick={toggleTheme.bind(null)}
             />
           </div>
-          <h1 className="dark:text-slate-300 font-bold ml-4 ">
-            BALANCE: {balance} Sats
-          </h1>
+          {readKey ? (
+            <h1 className="dark:text-slate-300 font-bold ml-4 ">
+              BALANCE: {balance} Sats
+            </h1>
+          ) : null}
         </div>
 
         <img

@@ -43,30 +43,30 @@ const Send = () => {
   }
 
   return (
-    <div className="max-w-md ml-5  items-center justify-center ">
-      <form className="flex mt-32  justify-center flex-col items-center ">
-        <h2 className="dark:text-slate-300 font-bold uppercase">
-          Paste or scan payment request
-        </h2>
-        <textarea
-          className="mt-2"
-          type="text"
-          rows={7}
-          cols={20}
-          value={formData.invoiceToPay}
-          onChange={(e) =>
-            setFormData({ ...formData, invoiceToPay: e.target.value })
-          }
-        />
-        <div className="">
-          <button
-            className={`font-semibold text-[16px] mt-4 ${
-              theme === 'dark' ? 'text-white' : ''
-            } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400`}
-            onClick={(e) => handleSend(e)}
-          >
-            Submit
-          </button>
+    <div className="sm:w-[580px]">
+      <form className="flex mt-32   flex-col  ">
+        <div className=" flex justify-center flex-col items-center ">
+          <h2 className="dark:text-slate-300 font-bold uppercase">
+            Paste or scan payment request
+          </h2>
+          <textarea
+            className="mt-2 w-[380px] h-[280px]"
+            type="text"
+            value={formData.invoiceToPay}
+            onChange={(e) =>
+              setFormData({ ...formData, invoiceToPay: e.target.value })
+            }
+          />
+          <div className="">
+            <button
+              className={`font-semibold text-[16px] mt-4 ${
+                theme === 'dark' ? 'text-white' : ''
+              } leading-[26px]  min-h-[52px] px-8 mt-2 ml-18 rounded-[10px] bg-slate-400`}
+              onClick={(e) => handleSend(e)}
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
       {paymentInfo.paymentHash && (

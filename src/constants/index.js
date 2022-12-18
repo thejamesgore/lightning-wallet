@@ -5,4 +5,5 @@ export const navLinks = [
   { name: 'wallet', imgUrl: wallet, link: '/wallet' },
   { name: 'send', imgUrl: send, link: 'send' },
   { name: 'receive', imgUrl: receive, link: '/receive' },
+  { name: 'sweep', imgUrl: receive, link: '/sweep' },
 ]
