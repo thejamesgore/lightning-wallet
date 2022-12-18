@@ -44,6 +44,7 @@ export const StateContextProvider = ({ children }) => {
     const data = $('q-card').text()
 
     setKeys(data)
+    getWalletBalance()
   }
   //
   // End of wallet generation
@@ -60,7 +61,11 @@ export const StateContextProvider = ({ children }) => {
   const backUpWallet = () => {
     const backUpString = localStorage.getItem('walletAdd')
 
-    setBackUp(backUpString)
+    const parsedString = backUpString.substring(
+      backUpString.indexOf('https://legend.lnbits.com/wallet?usr=') + 37
+    )
+
+    setBackUp(parsedString)
   }
   //
   // End of back up wallet
@@ -81,6 +86,7 @@ export const StateContextProvider = ({ children }) => {
       const data = $('q-card').text()
 
       setKeys(data)
+      getWalletBalance()
     } else {
       console.log()
       const string = 'https://legend.lnbits.com/wallet?usr=' + input

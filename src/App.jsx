@@ -7,11 +7,12 @@ import { Sidebar, Navbar } from './components'
 import { StateContext } from './context'
 
 const App = () => {
-  const { balance, getWalletBalance, readKey } = useContext(StateContext)
+  const { balance, getWalletBalance, backUp, readKey } =
+    useContext(StateContext)
 
   useEffect(() => {
-    setInterval(getWalletBalance(), 10000)
-  }, [])
+    setInterval(getWalletBalance(), 3000)
+  }, [backUp])
 
   return (
     <div className="relative sm:-8 p-4 min-h-screen bg-slate-200 dark:bg-[#131318] flex flex-row">

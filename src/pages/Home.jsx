@@ -89,17 +89,17 @@ const Home = () => {
         <div className="mt-4  ">
           {backUp && (
             <div className="flex flex-col justify-center items-center w-[380px]">
-              <h1 className="break-auto">
+              <h1 className="break-auto dark:text-slate-300 mt-4">
                 This is your backup key. Make sure you save this if you wish to
                 restore your wallet.
               </h1>
               <div>
-                <p className="mt-3 break-all">{backUp}</p>
+                <p className="mt-3 break-all dark:text-slate-300">{backUp}</p>
               </div>
             </div>
           )}
           {!backUp && (
-            <div>
+            <div className="flex justify-center">
               <button
                 onClick={backUpWallet}
                 className={`font-semibold text-[16px] mt-4 ${
