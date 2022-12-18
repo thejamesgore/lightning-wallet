@@ -28,6 +28,7 @@ export const StateContextProvider = ({ children }) => {
   const [keys, setKeys] = useState('')
   const [wallet, setWallet] = useState('')
   const [backUp, setBackUp] = useState('')
+  const [camData, setCamData] = useState()
 
   const generateWallet = async () => {
     const num = Math.floor(100000 + Math.random() * 900000)
@@ -143,6 +144,8 @@ export const StateContextProvider = ({ children }) => {
         theme,
         balance,
         adminKey,
+        camData,
+        setCamData,
         readKey,
         wallet,
         backUp,

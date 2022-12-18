@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react'
 
 import axios from 'axios'
 
+import { Camera } from '../components'
+
 import { StateContext } from '../context'
 
 const Send = () => {
@@ -69,6 +71,7 @@ const Send = () => {
           </div>
         </div>
       </form>
+      <Camera />
       {paymentInfo.paymentHash && (
         <section>
           <h3 className="dark:text-slate-300">Payment sent</h3>
