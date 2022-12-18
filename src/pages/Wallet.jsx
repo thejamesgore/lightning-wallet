@@ -28,7 +28,7 @@ const Wallet = () => {
   }, [])
 
   return (
-    <div className="max-w-md ml-5 sm:mt-32  flex-col items-center justify-center ">
+    <div className="max-w-[580px] ml-5 sm:mt-32  flex-col items-center justify-center ">
       <div>
         <button
           className={`font-semibold w-[80%] text-[16px] mt-4 ${

@@ -10,10 +10,14 @@ import lightningDM from './lightningDM.svg'
 import hamburger from './hamburger.svg'
 import hamburgerOpen from './hamburgeropen.svg'
 import sweep from './sweep.svg'
+import github from './github.svg'
+import githubWhite from './github-white.svg'
 
 export {
   bitcoin,
   darkMode,
+  github,
+  githubWhite,
   hamburger,
   hamburgerOpen,
   home,

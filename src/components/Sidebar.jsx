@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { lightning, lightningDM, lightMode, darkMode } from '../assets'
+import {
+  lightning,
+  lightningDM,
+  lightMode,
+  darkMode,
+  github,
+  githubWhite,
+} from '../assets'
 import { navLinks } from '../constants'
 import { StateContext } from '../context'
 
@@ -83,6 +90,15 @@ const Sidebar = () => {
         >
           <Icon imgUrl={theme === 'dark' ? `${darkMode}` : `${lightMode}`} />
         </div>
+      </div>
+      <div className="flex-1 flex flex-col justify-between items-center bg-slate-300 dark:bg-[#1c1c24] rounded-[20px] h-[80px] w-[40px] py-1 mt-12">
+        <a href="https://github.com/thejamesgore/lightning-wallet">
+          <img
+            src={theme === 'dark' ? `${githubWhite}` : `${github}`}
+            alt="github link"
+            className="w-[30px]"
+          />
+        </a>
       </div>
     </div>
   )

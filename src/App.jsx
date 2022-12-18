@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 
 import { Route, Routes } from 'react-router-dom'
-import { Home, Receive, Send, Wallet } from './pages/'
+import { Home, Receive, Send, Wallet, Restore } from './pages/'
 import { Sidebar, Navbar } from './components'
 
 import { StateContext } from './context'
@@ -10,7 +10,7 @@ const App = () => {
   const { balance, getWalletBalance, readKey } = useContext(StateContext)
 
   useEffect(() => {
-    getWalletBalance()
+    setInterval(getWalletBalance(), 10000)
   }, [])
 
   return (
@@ -18,7 +18,7 @@ const App = () => {
       <div className="sm:flex hidden relative">
         <div className="">
           <div className="dark:text-slate-300 absolute ml-40 top-8 font-bold w-[580px]">
-            <p>{balance ? `BALANCE: ${balance} sats` : ''}</p>
+            {readKey ? <p>BALANCE: {balance} sats</p> : null}
           </div>
           <Sidebar />
         </div>
@@ -27,13 +27,14 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* {!readKey ? null : ( */}
-          <>
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/send" element={<Send />} />
-            <Route path="/receive" element={<Receive />} />
-          </>
-          {/* )} */}
+          {!readKey ? null : (
+            <>
+              <Route path="/wallet" element={<Wallet />} />
+              <Route path="/send" element={<Send />} />
+              <Route path="/receive" element={<Receive />} />
+              <Route path="/restore" element={<Restore />} />
+            </>
+          )}
         </Routes>
       </div>
     </div>
