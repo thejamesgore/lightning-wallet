@@ -1,27 +1,20 @@
-import React, { useState, useContext } from 'react'
-import { QrReader } from 'react-qr-reader'
+import React, { useState } from 'react'
+import BarcodeScannerComponent from 'react-qr-barcode-scanner'
 
-import { StateContext } from '../context'
-
-const Camera = (props) => {
-  const { setCamData } = useContext(StateContext)
-
+const Camera = () => {
+  const [data, setData] = useState('Not Found')
   return (
-    <>
-      <QrReader
-        onResult={(result, error) => {
-          if (!!result) {
-            setCamData(result?.text)
-          }
-
-          if (!!error) {
-            console.info(error)
-          }
+    <div>
+      <BarcodeScannerComponent
+        width={500}
+        height={500}
+        onUpdate={(err, result) => {
+          if (result) setData(result.text)
+          else setData('Not Found')
         }}
-        style={{ width: '100%' }}
       />
       <p>{data}</p>
-    </>
+    </div>
   )
 }
 

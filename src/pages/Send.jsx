@@ -49,7 +49,7 @@ const Send = () => {
       <form className="flex mt-32   flex-col  ">
         <div className=" flex justify-center flex-col items-center ">
           <h2 className="dark:text-slate-300 font-bold uppercase">
-            Paste or scan payment request
+            Paste payment request
           </h2>
           <textarea
             className="mt-2 w-[380px] h-[280px]"
@@ -71,7 +71,7 @@ const Send = () => {
           </div>
         </div>
       </form>
-      <Camera />
+
       {paymentInfo.paymentHash && (
         <section>
           <h3 className="dark:text-slate-300">Payment sent</h3>
