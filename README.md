@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Lightning Wallet
 
 A web based bitcoin lightning wallet built upon LNbits.
 
@@ -17,3 +17,7 @@ If that information is removed you will lose wallet functionality and lose funds
 It is recommended you back up your wallet once it is generated before usage so you can restore it if need be.
 
 By clicking `Generate New Wallet` you accept full responsibility for usage and any funds send to and from this wallet.
+
+## Using the wallet
+
+If you want to test the wallet but don't have any bitcoin you can use this faucet `https://www.lightningnetworkstores.com/faucet` send a small amount of satoshi's (smaller units of bitcoin) over to the wallet you generate. Simply paste the lnurl into the input field on the receive tab.
