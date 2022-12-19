@@ -15,7 +15,7 @@ const Home = () => {
   } = useContext(StateContext)
 
   const [state, setState] = useState('backup')
-  const [input, setInput] = useState('enter key')
+  const [input, setInput] = useState('')
 
   const handleChange = (event) => {
     setInput(event.target.value)
@@ -76,11 +76,12 @@ const Home = () => {
                 Restore Wallet
               </button>
               <input
-                className="mt-5 h-[50px] "
+                className="mt-5 px-2 h-[50px] "
                 type="text"
                 name="backuUp"
                 value={input}
                 onChange={handleChange}
+                placeholder="Enter key"
               />
             </form>
           </div>
