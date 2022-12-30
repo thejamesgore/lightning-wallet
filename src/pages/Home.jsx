@@ -89,7 +89,7 @@ const Home = () => {
       ) : (
         <div className="mt-4  ">
           {backUp && (
-            <div className="flex flex-col justify-center items-center w-[380px]">
+            <div className="flex flex-col justify-center items-center max-w-[380px]">
               <h1 className="break-auto dark:text-slate-300 mt-4">
                 This is your backup key. Make sure you save this if you wish to
                 restore your wallet.
